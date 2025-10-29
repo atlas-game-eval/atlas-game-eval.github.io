@@ -35,6 +35,24 @@
     .paper-badge{font-feature-settings:"tnum" on,"lnum" on}
     .code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .glass{backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,0.65)}
+
+    /* Fix YouTube iframe aspect ratio */
+    .aspect-w-16 {
+      position: relative;
+      width: 100%;
+    }
+  
+    .aspect-w-16.aspect-h-9 {
+      padding-top: 56.25%;
+    }
+  
+    .aspect-w-16 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 font-body">
