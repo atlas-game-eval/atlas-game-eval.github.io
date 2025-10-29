@@ -87,10 +87,16 @@
 
         <!-- Teaser image/video -->
         <div id="teaser" class="w-full mt-6">
-          <!-- Replace src with your MP4/YouTube/Vimeo. The poster is an image placeholder. -->
-          <video class="w-full rounded-2xl shadow" controls playsinline poster="assets/teaser.jpg">
-            <source src="assets/teaser.mp4" type="video/mp4" />
-          </video>
+          <!-- YouTube teaser video -->
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe class="w-full h-full rounded-2xl shadow"
+              src="https://www.youtube.com/embed/w9LkIWsDqyc"
+              title="Project teaser video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>
