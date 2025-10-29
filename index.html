@@ -63,8 +63,9 @@
       <nav class="ml-auto text-sm flex gap-4">
         <a href="#paper" class="hover:underline">Paper</a>
         <a href="#abstract" class="hover:underline">Abstract</a>
-        <a href="#method" class="hover:underline">Method</a>
-        <a href="#results" class="hover:underline">Results</a>
+        <!-- <a href="#method" class="hover:underline">Method</a> -->
+        <a href="#videos" class="hover:underline">Videos</a>
+        <!-- <a href="#results" class="hover:underline">Results</a> -->
         <a href="#bibtex" class="hover:underline">BibTeX</a>
         <a href="#ack" class="hover:underline">Acknowledgements</a>
       </nav>
@@ -125,7 +126,8 @@ Capabilities Through Game Performance Metrics</span></h1>
   <section class="bg-gray-50 border-y">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <h2 class="text-xl font-semibold mb-3">TL;DR</h2>
-      <p class="text-gray-700">In one or two sentences, explain the key idea/results. Mention speed/quality metrics or why it matters. Keep it punchy.</p>
+      <p class="text-gray-700">ChatGPT Atlas agent excels at logical, static web tasks such as Sudoku but falters in reactive, time-sensitive games like Flappy Bird, 
+        highlighting a gap between reasoning strength and real-time interaction skill.</p>
     </div>
   </section>
 
@@ -133,7 +135,14 @@ Capabilities Through Game Performance Metrics</span></h1>
   <section id="abstract">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12 grid gap-6">
       <h2 class="text-2xl font-bold">Abstract</h2>
-      <p class="text-gray-800 leading-relaxed">Write your abstract here. Keep the line length readable; this column width mirrors many modern project pages. You can include <span class="code">inline code</span>, references, or links.</p>
+      <p class="text-gray-800 leading-relaxed">OpenAI's ChatGPT Atlas introduces new capabilities for web interaction, enabling the model to analyze webpages, 
+        process user intents, and execute cursor and keyboard inputs directly within the browser. While its capacity for information retrieval tasks has been 
+        demonstrated, its performance in dynamic, interactive environments remains less explored. In this study, we conduct an early evaluation of Atlas's web 
+        interaction capabilities using browser-based games as test scenarios, including Google's T-Rex Runner, Sudoku, Flappy Bird, and Stein.world. We employ 
+        in-game performance scores as quantitative metrics to assess performance across different task types. Our results show that Atlas performs strongly in 
+        logical reasoning tasks like Sudoku, completing puzzles significantly faster than human baselines, but struggles substantially in real-time games 
+        requiring precise timing and motor control, often failing to progress beyond initial obstacles. These findings suggest that while Atlas demonstrates 
+        capable analytical processing, there remain notable limitations in dynamic web environments requiring real-time interaction. You can include <span class="code">inline code</span>, references, or links.</p>
     </div>
   </section>
 
@@ -179,6 +188,55 @@ Capabilities Through Game Performance Metrics</span></h1>
       </div>
     </div>
   </section>
+
+  <!-- Gameplay / Demo Videos -->
+<section id="videos" class="bg-gray-50 border-t">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <h2 class="text-2xl font-bold mb-6">Gameplay Videos</h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Video 1 -->
+      <figure class="rounded-2xl border p-3 bg-white">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            class="w-full h-full rounded-xl shadow"
+            src="https://www.youtube.com/embed/y_jR2LOrc6k"
+            title="Gameplay 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <figcaption class="text-sm text-gray-600 mt-2 text-center">Gameplay 1</figcaption>
+      </figure>
+
+      <!-- Video 2 -->
+      <figure class="rounded-2xl border p-3 bg-white">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            class="w-full h-full rounded-xl shadow"
+            src="https://www.youtube.com/embed/o6E-ykjAK64"
+            title="Gameplay 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <figcaption class="text-sm text-gray-600 mt-2 text-center">Gameplay 2</figcaption>
+      </figure>
+
+      <!-- Video 3 -->
+      <figure class="rounded-2xl border p-3 bg-white">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            class="w-full h-full rounded-xl shadow"
+            src="https://www.youtube.com/embed/M6IPYVPXVI0"
+            title="Gameplay 3"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <figcaption class="text-sm text-gray-600 mt-2 text-center">Gameplay 3</figcaption>
+      </figure>
+
 
   <!-- Game Screenshots Gallery -->
 <section id="screenshots" class="bg-gray-50 border-t">
