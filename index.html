@@ -53,6 +53,36 @@
       width: 100%;
       height: 100%;
     }
+
+    /* Horizontal carousel visuals */
+    #shot-strip { scroll-snap-type: x mandatory; }
+    .shot {
+      scroll-snap-align: center;
+      opacity: .45;
+      transform: scale(.92);
+      transition: opacity .25s ease, transform .25s ease;
+      border-radius: 1rem;
+    }
+    .shot.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Preserve image aspect ratio (no stretching) */
+    .shot .shot-frame { height: 18rem; }              /* ~288px - adjust if you want taller cards */
+    @media (min-width: 640px){ .shot .shot-frame { height: 22rem; } }
+    @media (min-width:1024px){ .shot .shot-frame { height: 26rem; } }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;                             /* keep native ratio, letterbox inside the frame */
+      border-radius: .75rem;
+    }
+
+    #shot-strip::-webkit-scrollbar { display: none; }
+    #shot-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+
+
   </style>
 </head>
 <body class="bg-white text-gray-900 font-body">
@@ -246,39 +276,55 @@ Capabilities Through Game Performance Metrics</span></h1>
 <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
   <h2 class="text-2xl font-bold mb-6">Game Screenshots</h2>
 
-  <!-- Scrollable horizontal gallery -->
-  <div class="gallery overflow-x-auto snap-x snap-mandatory flex gap-4 px-1" aria-label="Screenshot gallery">
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/dino_1.png" alt="Chrome Dino 1" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 1</figcaption>
+  <!-- One-at-a-time, center-snapping, fading carousel -->
+  <div id="shot-strip"
+       class="overflow-x-auto flex gap-6 px-1 snap-x snap-mandatory"
+       aria-label="Screenshot gallery">
+    <!-- Each card is ~one screen-wide on mobile; smaller on larger screens -->
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/dino_1.png" alt="Chrome Dino 1" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Chrome Dino 1</figcaption>
     </figure>
 
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/dino_2.png" alt="Chrome Dino 2" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 2</figcaption>
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/dino_2.png" alt="Chrome Dino 2" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Chrome Dino 2</figcaption>
     </figure>
 
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/flappy_bird_1.png" alt="Flappy Bird" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/flappy_bird_1.png" alt="Flappy Bird" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Flappy Bird</figcaption>
     </figure>
 
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/Sudoku_1.png" alt="Sudoku 1" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 1</figcaption>
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/Sudoku_1.png" alt="Sudoku 1" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku 1</figcaption>
     </figure>
 
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/Sudoku_2.png" alt="Sudoku 2" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 2</figcaption>
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/Sudoku_2.png" alt="Sudoku 2" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku 2</figcaption>
     </figure>
 
-    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
-      <img src="assets/screenshots/Sudoku_3.png" alt="Sudoku 3" class="rounded-xl shadow" loading="lazy">
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 3</figcaption>
+    <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
+      <div class="shot-frame">
+        <img src="assets/screenshots/Sudoku_3.png" alt="Sudoku 3" loading="lazy">
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku 3</figcaption>
     </figure>
   </div>
 </div>
+
 </section>
 
 
@@ -321,5 +367,34 @@ Capabilities Through Game Performance Metrics</span></h1>
       <a class="underline" href="#top">Back to top ↑</a>
     </div>
   </footer>
+  <script>
+  (function(){
+    const strip = document.getElementById('shot-strip');
+    const cards = Array.from(strip.querySelectorAll('.shot'));
+    cards[0]?.classList.add('active');
+
+    // highlight centered card
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting) {
+          cards.forEach(c=>c.classList.remove('active'));
+          e.target.classList.add('active');
+        }
+      });
+    }, { root: strip, threshold: 0.6 });
+
+    cards.forEach(c => io.observe(c));
+
+    // simple loop: when you scroll to ~end, jump back to start smoothly
+    strip.addEventListener('scroll', () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      if (strip.scrollLeft >= max - 4) {
+        // small delay so last slide can fully "activate" before looping
+        setTimeout(()=> strip.scrollTo({ left: 0, behavior: 'smooth' }), 180);
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
