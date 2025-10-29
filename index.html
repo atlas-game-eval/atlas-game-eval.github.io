@@ -187,7 +187,7 @@ Capabilities Through Game Performance Metrics</span></h1>
         </div>
       </div>
     </div>
-  </section> --> --> --> -->
+  </section> --> 
 
   <!-- Gameplay / Demo Videos -->
 <section id="videos" class="bg-gray-50 border-t">
@@ -236,50 +236,54 @@ Capabilities Through Game Performance Metrics</span></h1>
         </div>
         <figcaption class="text-sm text-gray-600 mt-2 text-center">Gameplay 3</figcaption>
       </figure>
+    </div> <!-- end grid -->
+  </div> <!-- end container -->
+</section> <!-- end videos -->
 
 
   <!-- Game Screenshots Gallery -->
 <section id="screenshots" class="bg-gray-50 border-t">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <h2 class="text-2xl font-bold mb-6">Game Screenshots</h2>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+  <h2 class="text-2xl font-bold mb-6">Game Screenshots</h2>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/dino_1.png" alt="Dino Game 1" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 1</figcaption>
-      </figure>
+  <!-- Scrollable horizontal gallery -->
+  <div class="gallery overflow-x-auto snap-x snap-mandatory flex gap-4 px-1" aria-label="Screenshot gallery">
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/dino_1.png" alt="Chrome Dino 1" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 1</figcaption>
+    </figure>
 
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/dino_2.png" alt="Dino Game 2" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 2</figcaption>
-      </figure>
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/dino_2.png" alt="Chrome Dino 2" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Chrome Dino 2</figcaption>
+    </figure>
 
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/flappy_bird_1.png" alt="Flappy Bird" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
-      </figure>
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/flappy_bird_1.png" alt="Flappy Bird" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
+    </figure>
 
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/Sudoku_1.png" alt="Sudoku 1" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 1</figcaption>
-      </figure>
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/Sudoku_1.png" alt="Sudoku 1" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 1</figcaption>
+    </figure>
 
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/Sudoku_2.png" alt="Sudoku 2" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 2</figcaption>
-      </figure>
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/Sudoku_2.png" alt="Sudoku 2" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 2</figcaption>
+    </figure>
 
-      <figure class="rounded-2xl border bg-white p-3">
-        <img src="assets/screenshots/Sudoku_3.png" alt="Sudoku 3" class="rounded-xl shadow" />
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 3</figcaption>
-      </figure>
-    </div>
+    <figure class="min-w-[80%] sm:min-w-[55%] lg:min-w-[40%] snap-center rounded-2xl border bg-white p-3">
+      <img src="assets/screenshots/Sudoku_3.png" alt="Sudoku 3" class="rounded-xl shadow" loading="lazy">
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku 3</figcaption>
+    </figure>
   </div>
+</div>
 </section>
 
 
   <!-- Models / Checkpoints -->
-  <section id="models" class="bg-gray-50">
+  <!-- <section id="models" class="bg-gray-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
       <h2 class="text-2xl font-bold mb-4">Models</h2>
       <ul class="list-disc pl-6 text-gray-800">
@@ -287,7 +291,7 @@ Capabilities Through Game Performance Metrics</span></h1>
         <li>Model B (LoRA) — <a class="underline" href="#">Hugging Face</a></li>
       </ul>
     </div>
-  </section>
+  </section> -->
 
   <!-- BibTeX -->
   <section id="bibtex">
