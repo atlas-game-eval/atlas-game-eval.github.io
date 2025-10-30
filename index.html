@@ -58,8 +58,8 @@
     #shot-strip { scroll-snap-type: x mandatory; }
     .shot {
       scroll-snap-align: center;
-      opacity: .45;
-      transform: scale(.92);
+      /* opacity: .45;
+      transform: scale(.92); */
       transition: opacity .25s ease, transform .25s ease;
       border-radius: 1rem;
     }
@@ -84,6 +84,15 @@
     /* Horizontal video slider */
     #video-strip::-webkit-scrollbar { display: none; }
     #video-strip { scrollbar-width: none; -ms-overflow-style: none; }
+    #shot-strip.no-snap { scroll-snap-type: none; }
+
+    #arrow-left, #arrow-right {
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    #arrow-left:hover, #arrow-right:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
     
     /* .video-card { opacity:.6; transform:scale(.97); transition:opacity .25s, transform .25s; } */
     .video-card.active { opacity:1; transform:scale(1); }
@@ -117,13 +126,13 @@
           <span class="w-2 h-2 bg-green-500 rounded-full"></span>
           <span>Preprint · 2025</span>
         </span>
-        <h1 class="font-display text-3xl sm:text-5xl font-bold leading-tight">Can AI Conquer Web? <br class="hidden sm:block"/><span class="text-gray-600">Exploring the Frontiers of Atlas Agent in Web Games</span></h1>
+        <h1 class="font-display text-3xl sm:text-5xl font-bold leading-tight">Can Agent Conquer Web? <br class="hidden sm:block"/><span class="text-gray-600">Exploring the Frontiers of Atlas Agent in Web Games</span></h1>
         
         <!-- Authors & affiliations -->
         <p class="text-sm sm:text-base text-gray-700">
           Jingran Zhang<sup>1</sup>, Ning Li<sup>1</sup>, Justin Cui<sup>2</sup>
         </p>
-        <p class="text-xs text-gray-500"> <sup>1</sup>UC San Diego · <sup>2</sup>UCLA
+        <p class="text-xs text-gray-500"> <sup>1</sup>UC San Diego · <sup>2</sup>UCLA </p>
 
         <!-- Links row -->
         <div class="flex flex-wrap justify-center gap-3 pt-2">
@@ -178,7 +187,9 @@
         in-game performance scores as quantitative metrics to assess performance across different task types. Our results show that Atlas performs strongly in 
         logical reasoning tasks like Sudoku, completing puzzles significantly faster than human baselines, but struggles substantially in real-time games 
         requiring precise timing and motor control, often failing to progress beyond initial obstacles. These findings suggest that while Atlas demonstrates 
-        capable analytical processing, there remain notable limitations in dynamic web environments requiring real-time interaction. You can include <span class="code">inline code</span>, references, or links.</p>
+        capable analytical processing, there remain notable limitations in dynamic web environments requiring real-time interaction. 
+        <!-- You can include <span class="code">inline code</span>, references, or links. -->
+      </p>
     </div>
   </section>
 
@@ -226,6 +237,7 @@
   </section> --> 
 
   <!-- Gameplay / Demo Videos -->
+<section id="videos" class="bg-gray-50 border-t">
 <div class="flex flex-wrap justify-center gap-6">
   <figure class="rounded-2xl border p-3 bg-white">
     <div>
@@ -281,9 +293,19 @@
   <h2 class="text-2xl font-bold mb-6">Game Screenshots</h2>
 
   <!-- One-at-a-time, center-snapping, fading carousel -->
-  <div id="shot-strip"
-       class="overflow-x-auto flex gap-6 px-1 snap-x snap-mandatory"
-       aria-label="Screenshot gallery">
+  <div class="relative">
+    <!-- Left arrow -->
+    <button id="arrow-left" type="button" aria-label="Scroll screenshots left"
+      class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border rounded-full p-2 shadow z-10">
+      &#9664;
+    </button>
+
+  
+    <!-- The scrollable strip -->
+    <div id="shot-strip"
+         class="overflow-x-auto flex gap-6 px-8 snap-x snap-mandatory"
+         aria-label="Screenshot gallery">
+
     <!-- Each card is ~one screen-wide on mobile; smaller on larger screens -->
     <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
       <div class="shot-frame">
@@ -320,6 +342,13 @@
       <figcaption class="text-sm text-gray-600 mt-3 text-center">RPG - Stein.world</figcaption>
     </figure>
   </div>
+        <!-- Right arrow -->
+  <button id="arrow-right" type="button" aria-label="Scroll screenshots right"
+    class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border rounded-full p-2 shadow z-10">
+    &#9654;
+  </button>
+</div> <!-- end relative wrapper -->
+
 </div>
 
 </section>
@@ -364,34 +393,106 @@
       <a class="underline" href="#top">Back to top ↑</a>
     </div>
   </footer>
+
   <script>
-  (function(){
-    const strip = document.getElementById('shot-strip');
-    const cards = Array.from(strip.querySelectorAll('.shot'));
-    cards[0]?.classList.add('active');
+(function(){
+  const strip = document.getElementById('shot-strip');
+  if (!strip) return;
 
-    // highlight centered card
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if (e.isIntersecting) {
-          cards.forEach(c=>c.classList.remove('active'));
-          e.target.classList.add('active');
-        }
-      });
-    }, { root: strip, threshold: 0.6 });
+  // Collect originals
+  const originals = Array.from(strip.querySelectorAll('.shot'));
+  const N = originals.length;
+  if (N === 0) return;
 
-    cards.forEach(c => io.observe(c));
+  // Helper: activate the centered card
+  const setActive = (idx) => {
+    const cards = Array.from(strip.children);
+    cards.forEach(c => c.classList.remove('active'));
+    cards[idx]?.classList.add('active');
+  };
 
-    // simple loop: when you scroll to ~end, jump back to start smoothly
-    strip.addEventListener('scroll', () => {
-      const max = strip.scrollWidth - strip.clientWidth;
-      if (strip.scrollLeft >= max - 4) {
-        // small delay so last slide can fully "activate" before looping
-        setTimeout(()=> strip.scrollTo({ left: 0, behavior: 'smooth' }), 180);
+  // 1) Clone to both ends: [clones-last..] [ORIGINALS] [..clones-first]
+  //    We clone the whole set on each side for reliable mapping.
+  const leftClones  = originals.map(el => el.cloneNode(true));
+  const rightClones = originals.map(el => el.cloneNode(true));
+
+  leftClones.reverse().forEach(clone => strip.insertBefore(clone, strip.firstChild));
+  rightClones.forEach(clone => strip.appendChild(clone));
+
+  // After cloning, re-compute cards
+  const cards = Array.from(strip.children);
+  const firstOriginalIndex = N;            // originals start after left clones
+  const lastOriginalIndex  = N + N - 1;    // inclusive end index of originals
+
+  // 2) Jump to the first original silently (no snap, no smooth)
+  const jumpToIndex = (i, {smooth=false} = {}) => {
+    strip.classList.add('no-snap');                // disable snap for the teleport
+    strip.scrollTo({ left: cards[i].offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+    strip.classList.remove('no-snap');
+    setActive(i);
+  };
+
+  // Initial position & active state
+  jumpToIndex(firstOriginalIndex, {smooth:false});
+
+  // 3) Observe intersection to keep active centered card (nice highlight)
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (e.isIntersecting) {
+        cards.forEach(c => c.classList.remove('active'));
+        e.target.classList.add('active');
       }
     });
-  })();
+  }, { root: strip, threshold: 0.6 });
+  cards.forEach(c => io.observe(c));
+
+  // 4) Debounced "settle" handler: if we crossed into clones, remap to the
+  //    corresponding original index invisibly (true infinite loop).
+  let settleTimer = null;
+  const onSettle = () => {
+    const centerX = strip.scrollLeft + strip.clientWidth / 2;
+    // find nearest card to center
+    let nearestIdx = 0, best = Infinity;
+    for (let i = 0; i < cards.length; i++) {
+      const boxCenter = cards[i].offsetLeft + cards[i].offsetWidth / 2;
+      const d = Math.abs(boxCenter - centerX);
+      if (d < best) { best = d; nearestIdx = i; }
+    }
+
+    // If we're in left clones, map forward by N; if in right clones, map back by N.
+    let mapped = nearestIdx;
+    if (nearestIdx < firstOriginalIndex) {
+      mapped = nearestIdx + N;
+      jumpToIndex(mapped, {smooth:false});
+    } else if (nearestIdx > lastOriginalIndex) {
+      mapped = nearestIdx - N;
+      jumpToIndex(mapped, {smooth:false});
+    } else {
+      // within originals; ensure active is correct (in case IO hasn't fired yet)
+      setActive(nearestIdx);
+    }
+  };
+
+  strip.addEventListener('scroll', () => {
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(onSettle, 80);  // small debounce so we snap/settle first
+  });
+
+    // Arrow scroll behavior
+  const leftBtn = document.getElementById('arrow-left');
+  const rightBtn = document.getElementById('arrow-right');
+
+  const scrollAmount = strip.clientWidth * 0.8; // ~80% width per click
+  leftBtn.addEventListener('click', () =>
+    strip.scrollBy({ left: -scrollAmount, behavior: 'smooth' })
+  );
+  rightBtn.addEventListener('click', () =>
+    strip.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+  );
+
+})();
 </script>
+
 
 </body>
 </html>
