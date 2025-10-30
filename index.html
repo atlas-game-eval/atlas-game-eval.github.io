@@ -96,7 +96,7 @@
   <!-- Sticky header -->
   <header class="sticky top-0 z-40 glass border-b border-gray-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
-      <a href="#top" class="font-semibold">Project Title</a>
+      <a href="#top" class="font-semibold">Atlas Game Eval</a>
       <nav class="ml-auto text-sm flex gap-4">
         <a href="#paper" class="hover:underline">Paper</a>
         <a href="#abstract" class="hover:underline">Abstract</a>
@@ -104,7 +104,7 @@
         <a href="#videos" class="hover:underline">Videos</a>
         <!-- <a href="#results" class="hover:underline">Results</a> -->
         <a href="#bibtex" class="hover:underline">BibTeX</a>
-        <a href="#ack" class="hover:underline">Acknowledgements</a>
+        <!-- <a href="#ack" class="hover:underline">Acknowledgements</a> -->
       </nav>
     </div>
   </header>
@@ -130,9 +130,9 @@
           <a id="paper" href="#" class="inline-flex items-center gap-2 rounded-xl border px-4 py-2 hover:bg-gray-50">
             <span>📄 Paper (arXiv)</span>
           </a>
-          <a href="#" class="inline-flex items-center gap-2 rounded-xl border px-4 py-2 hover:bg-gray-50">
+          <!-- <a href="#" class="inline-flex items-center gap-2 rounded-xl border px-4 py-2 hover:bg-gray-50">
             💾 Code (GitHub)
-          </a>
+          </a> -->
           <a href="#teaser" class="inline-flex items-center gap-2 rounded-xl border px-4 py-2 hover:bg-gray-50">
             ▶️ Video
           </a>
@@ -159,13 +159,13 @@
   </section>
 
   <!-- TL;DR strip -->
-  <section class="bg-gray-50 border-y">
+  <!-- <section class="bg-gray-50 border-y">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <h2 class="text-xl font-semibold mb-3">TL;DR</h2>
       <p class="text-gray-700">ChatGPT Atlas agent excels at logical, static web tasks such as Sudoku but falters in reactive, time-sensitive games like Flappy Bird, 
         highlighting a gap between reasoning strength and real-time interaction skill.</p>
     </div>
-  </section>
+  </section> -->
 
   <!-- Abstract -->
   <section id="abstract">
@@ -226,52 +226,52 @@
   </section> --> 
 
   <!-- Gameplay / Demo Videos -->
-<section id="videos" class="bg-gray-50 border-t">
-    <div id="video-strip"
-       class="overflow-x-auto snap-x snap-mandatory flex gap-6 px-1"
-       aria-label="Gameplay videos">
-  
-    <!-- One video per “slide”; mostly full width -->
-    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe
-          class="w-full h-full rounded-xl shadow"
-          src="https://www.youtube.com/embed/y_jR2LOrc6k"
-          title="Sudoku"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku</figcaption>
-    </figure>
-  
-    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe
-          class="w-full h-full rounded-xl shadow"
-          src="https://www.youtube.com/embed/o6E-ykjAK64"
-          title="Flappy Bird"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
-    </figure>
-  
-    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe
-          class="w-full h-full rounded-xl shadow"
-          src="https://www.youtube.com/embed/M6IPYVPXVI0"
-          title="T-Rex Runner"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <figcaption class="text-sm text-gray-600 mt-2 text-center">T-Rex Runner</figcaption>
-    </figure>
-  </div>
+<div class="flex flex-wrap justify-center gap-6">
+  <figure class="rounded-2xl border p-3 bg-white">
+    <div>
+      <iframe
+        class="rounded-xl shadow"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/y_jR2LOrc6k"
+        title="Sudoku"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku</figcaption>
+  </figure>
 
+  <figure class="rounded-2xl border p-3 bg-white">
+    <div>
+      <iframe
+        class="rounded-xl shadow"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/o6E-ykjAK64"
+        title="Flappy Bird"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
+  </figure>
+
+  <figure class="rounded-2xl border p-3 bg-white">
+    <div>
+      <iframe
+        class="rounded-xl shadow"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/M6IPYVPXVI0"
+        title="T-Rex Runner"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption class="text-sm text-gray-600 mt-2 text-center">T-Rex Runner</figcaption>
+  </figure>
+</div>
 </section> <!-- end videos -->
 
 
@@ -289,14 +289,14 @@
       <div class="shot-frame">
         <img src="assets/screenshots/dino_1.png" alt="Chrome Dino 1" loading="lazy">
       </div>
-      <figcaption class="text-sm text-gray-600 mt-3 text-center">Chrome Dino 1</figcaption>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">T-Rex Runner</figcaption>
     </figure>
 
     <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
       <div class="shot-frame">
         <img src="assets/screenshots/2048_1.png" alt="Chrome Dino 2" loading="lazy">
       </div>
-      <figcaption class="text-sm text-gray-600 mt-3 text-center">Chrome Dino 2</figcaption>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">2048</figcaption>
     </figure>
 
     <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
@@ -310,14 +310,14 @@
       <div class="shot-frame">
         <img src="assets/screenshots/Sudoku_2.png" alt="Sudoku 2" loading="lazy">
       </div>
-      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku 2</figcaption>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku</figcaption>
     </figure>
 
     <figure class="shot min-w-[90%] sm:min-w-[70%] lg:min-w-[55%] bg-white border p-4">
       <div class="shot-frame">
         <img src="assets/screenshots/stein_1.png" alt="Sudoku 3" loading="lazy">
       </div>
-      <figcaption class="text-sm text-gray-600 mt-3 text-center">Sudoku 3</figcaption>
+      <figcaption class="text-sm text-gray-600 mt-3 text-center">RPG - Stein.world</figcaption>
     </figure>
   </div>
 </div>
