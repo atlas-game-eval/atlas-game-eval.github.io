@@ -79,8 +79,15 @@
       border-radius: .75rem;
     }
 
-    #shot-strip::-webkit-scrollbar { display: none; }
-    #shot-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+    /* #shot-strip::-webkit-scrollbar { display: none; }
+    #shot-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; } */
+    /* Horizontal video slider */
+    #video-strip::-webkit-scrollbar { display: none; }
+    #video-strip { scrollbar-width: none; -ms-overflow-style: none; }
+    
+    .video-card { opacity:.6; transform:scale(.97); transition:opacity .25s, transform .25s; }
+    .video-card.active { opacity:1; transform:scale(1); }
+
 
 
   </style>
@@ -220,53 +227,51 @@
 
   <!-- Gameplay / Demo Videos -->
 <section id="videos" class="bg-gray-50 border-t">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <h2 class="text-2xl font-bold mb-6">Gameplay Videos</h2>
+    <div id="video-strip"
+       class="overflow-x-auto snap-x snap-mandatory flex gap-6 px-1"
+       aria-label="Gameplay videos">
+  
+    <!-- One video per “slide”; mostly full width -->
+    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe
+          class="w-full h-full rounded-xl shadow"
+          src="https://www.youtube.com/embed/y_jR2LOrc6k"
+          title="Sudoku"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku</figcaption>
+    </figure>
+  
+    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe
+          class="w-full h-full rounded-xl shadow"
+          src="https://www.youtube.com/embed/o6E-ykjAK64"
+          title="Flappy Bird"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
+    </figure>
+  
+    <figure class="video-card snap-center min-w-[100%] sm:min-w-[85%] lg:min-w-[70%] rounded-2xl border p-3 bg-white">
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe
+          class="w-full h-full rounded-xl shadow"
+          src="https://www.youtube.com/embed/M6IPYVPXVI0"
+          title="T-Rex Runner"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <figcaption class="text-sm text-gray-600 mt-2 text-center">T-Rex Runner</figcaption>
+    </figure>
+  </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Video 1 -->
-      <figure class="rounded-2xl border p-3 bg-white">
-        <div class="aspect-w-16 aspect-h-9">
-          <iframe
-            class="w-full h-full rounded-xl shadow"
-            src="https://www.youtube.com/embed/y_jR2LOrc6k"
-            title="Gameplay 1"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Sudoku</figcaption>
-      </figure>
-
-      <!-- Video 2 -->
-      <figure class="rounded-2xl border p-3 bg-white">
-        <div class="aspect-w-16 aspect-h-9">
-          <iframe
-            class="w-full h-full rounded-xl shadow"
-            src="https://www.youtube.com/embed/o6E-ykjAK64"
-            title="Gameplay 2"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">Flappy Bird</figcaption>
-      </figure>
-
-      <!-- Video 3 -->
-      <figure class="rounded-2xl border p-3 bg-white">
-        <div class="aspect-w-16 aspect-h-9">
-          <iframe
-            class="w-full h-full rounded-xl shadow"
-            src="https://www.youtube.com/embed/M6IPYVPXVI0"
-            title="Gameplay 3"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <figcaption class="text-sm text-gray-600 mt-2 text-center">T-Rex Runner</figcaption>
-      </figure>
-    </div> <!-- end grid -->
-  </div> <!-- end container -->
 </section> <!-- end videos -->
 
 
