@@ -79,8 +79,8 @@
       border-radius: .75rem;
     }
 
-    /* #shot-strip::-webkit-scrollbar { display: none; }
-    #shot-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; } */
+    #shot-strip::-webkit-scrollbar { display: none; }
+    #shot-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
     /* Horizontal video slider */
     #video-strip::-webkit-scrollbar { display: none; }
     #video-strip { scrollbar-width: none; -ms-overflow-style: none; }
@@ -243,11 +243,11 @@
     
 <div class="flex flex-wrap justify-center gap-6">
   <figure class="rounded-2xl border p-3 bg-white">
-    <div>
+    <div class="aspect-w-16 aspect-h-9">
       <iframe
-        class="rounded-xl shadow"
-        width="560"
-        height="315"
+        class="rounded-xl shadow w-full h-full"
+        <!-- width="560"
+        height="315" -->
         src="https://www.youtube.com/embed/y_jR2LOrc6k"
         title="Sudoku"
         frameborder="0"
@@ -258,11 +258,11 @@
   </figure>
 
   <figure class="rounded-2xl border p-3 bg-white">
-    <div>
+    <div class="aspect-w-16 aspect-h-9">
       <iframe
-        class="rounded-xl shadow"
-        width="560"
-        height="315"
+        class="rounded-xl shadow w-full h-full"
+        <!-- width="560"
+        height="315" -->
         src="https://www.youtube.com/embed/o6E-ykjAK64"
         title="Flappy Bird"
         frameborder="0"
@@ -273,11 +273,11 @@
   </figure>
 
   <figure class="rounded-2xl border p-3 bg-white">
-    <div>
+    <div class="aspect-w-16 aspect-h-9">
       <iframe
-        class="rounded-xl shadow"
-        width="560"
-        height="315"
+        class="rounded-xl shadow w-full h-full"
+        <!-- width="560"
+        height="315" -->
         src="https://www.youtube.com/embed/M6IPYVPXVI0"
         title="T-Rex Runner"
         frameborder="0"
